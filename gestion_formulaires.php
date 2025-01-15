@@ -3,21 +3,12 @@ $metaDescription="page contact";
 $titre="contact";
 require __DIR__ . DIRECTORY_SEPARATOR . 'header.php'
 ?>
-<h1>test</h1>
-
-
 <?php
-   
-    // $current_page = basename($_SERVER['SCRIPT_NAME']);
-
-    if ($_SERVER['SCRIPT_NAME']=="/contact.php"){
-
-
-    }
-
-
+echo $_GET['nom'];
+echo $_GET['prenom'];
+echo $_GET['email']; 
+echo $_GET['message'];
 ?>
-
 
 
 

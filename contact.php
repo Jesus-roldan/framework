@@ -4,7 +4,7 @@ $titre="contact";
 require __DIR__ . DIRECTORY_SEPARATOR . 'header.php'
 ?>
 <h1>contac</h1>
-<form method="get" action="">
+<form method="get" action="/gestion_formulaires.php">
     <p>
     <label for="nom" class="obligatoire"> Nom :</label>
     <input type="text" name="nom" id="nom" placeholder="Champ obligatoire" required minlength="2" maxlength="255" />
@@ -22,6 +22,11 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'header.php'
         <textarea name="message" id="message" rows="5" minlength="10" maxlength="3000" required></textarea>
     </p>
 </form>
+
+<?php
+require __DIR__ . DIRECTORY_SEPARATOR . 'gestion_formulaire'
+?>
+
 
 <?php 
 require __DIR__ . DIRECTORY_SEPARATOR . 'footer.php'
