@@ -1,17 +1,11 @@
-<?php 
-$metaDescription="page contact";
-$titre="contact";
-require __DIR__ . DIRECTORY_SEPARATOR . 'header.php'
-?>
 <?php
-echo $_GET['nom'];
-echo $_GET['prenom'];
-echo $_GET['email']; 
-echo $_GET['message'];
+$nom=$_GET['nom'] ?? '';
+$prenom=$_GET['prenom'] ?? '';
+$email=$_GET['email'] ?? '';
+$message=$_GET['message'] ?? '';
+
+
 ?>
 
 
 
-<?php 
-require __DIR__ . DIRECTORY_SEPARATOR . 'footer.php'
-?>

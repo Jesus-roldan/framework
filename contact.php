@@ -1,8 +1,10 @@
 <?php 
 $metaDescription="page contact";
 $titre="contact";
-require __DIR__ . DIRECTORY_SEPARATOR . 'header.php'
+require __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
 ?>
+<link rel="stylesheet" href="/assets/styles.css">
+
 <h1>contac</h1>
 <form method="get" action="/gestion_formulaires.php">
     <p>
@@ -24,10 +26,10 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'header.php'
 </form>
 
 <?php
-require __DIR__ . DIRECTORY_SEPARATOR . 'gestion_formulaire'
+require __DIR__ . DIRECTORY_SEPARATOR . 'gestion_formulaires.php';
 ?>
 
 
 <?php 
-require __DIR__ . DIRECTORY_SEPARATOR . 'footer.php'
+require __DIR__ . DIRECTORY_SEPARATOR . 'footer.php';
 ?>
