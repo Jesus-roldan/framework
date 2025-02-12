@@ -1,8 +1,8 @@
 
 
 <?php
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
 
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'menu.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,17 +12,16 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?=$metaDescription?>">
     <title><?=$titre?></title>
-    <link rel="stylesheet" href="C:\laragon\www\framework\assets\css\styles.css">
+    <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
-    <h1>hola</h1>
     <header>
-        <nav>
-            <ul>
-                <?php 
-                require __DIR__ . DIRECTORY_SEPARATOR . 'menu.php';
-                echo genererMenu($items); 
-                ?>
+        <nav>    
+            <ul>   
+                <?php        
+            echo genererMenu($items);
+                ?>   
+
             </ul>
         </nav>
 
