@@ -31,53 +31,6 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
     </p>
 </form>
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") 
-{
-    $nom = trim($_POST['nom']);
-    $prenom = trim($_POST['prenom']);
-    $email = trim($_POST['email']);
-    $message = trim($_POST['message']);
-
-    if (!empty($nom) && !empty($email) && !empty($message) && filter_var($email, FILTER_VALIDATE_EMAIL))
-    {
-
-    $expediteur = "bot@imosup.waf.be";
-    $destinataire = "jesus.roldan82@hotmail.com";
-    $sujet = "Projet Framework - Formulaire de contact";
-    // $message = "Contenu du courriel...";
-
-    $contenu = "<html><body>";
-    $contenu .= "<h2>Nouveau message de contact</h2>";
-    $contenu .= "<p><strong>Nom:</strong> " . htmlspecialchars($nom) . "</p>";
-    $contenu .= "<p><strong>Prénom:</strong> " . htmlspecialchars($prenom) . "</p>";
-    $contenu .= "<p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>";
-    $contenu .= "<p><strong>Message:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>";
-    $contenu .= "</body></html>";
-
-    $entetes = [
-        "From" => $expediteur,
-        "MIME-Version" => "1.0",
-        "Content-Type" => "text/html; charset=\"UTF-8\"",
-        "Content-Transfer-Encoding" => "quoted-printable"
-    ];
-
-        if (mail($destinataire, $sujet, $message, $entetes))
-        {
-            echo "Le courriel a été envoyé avec succès.";
-        }
-        else
-        {
-            echo "L'envoi du courriel a échoué.";
-        }
-    }
-    else
-    {
-            echo "<p>Veuillez remplir tous les champs obligatoires correctement.</p>";
-    }
-}
-?>
-
 <?php 
 require __DIR__ . DIRECTORY_SEPARATOR . 'footer.php';
 ?>

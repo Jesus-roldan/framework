@@ -7,7 +7,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
 
    if (empty($erreur))
    {
-      echo $Message = "<p>Formulaire envoyé avec succès! </p>";
+        echo $Message = "<p>Formulaire envoyé avec succès! </p>";
+     
+
+        $expediteur = $valeurs['email'];
+        $destinataire = "jesus.roldan82@hotmail.com";
+        $sujet = "FRAMEWORK : Message provenant de la page contact";
+        $message = $valeurs['message'];
+        $message = wordwrap($message ?:'', 70, "\r\n");
+        $message = str_replace("\n.", "\n..", $message);
+
+        $entetes = [
+            "From" => $expediteur,
+            "MIME-Version" => "1.0",
+            "Content-Type" => "text/html; charset=\"UTF-8\"",
+            "Content-Transfer-Encoding" => "quoted-printable"
+        ];
+
+        if (mail($destinataire, $sujet, $message, $entetes))
+        {
+            echo "Le courriel a été envoyé avec succès.";
+        }
+        else
+        {
+            echo "L'envoi du courriel a échoué.";
+        }
+
        $valeurs = [];
    }
    else{
@@ -43,7 +68,7 @@ function traiterFormulaire($entreeUtilisateur)
             $erreur['prenom'] = "<p>Le prenom doit contenir entre 2 et 255 caractères!</p>";
         }
 
-        if($email == '')
+        if($email === '')
         {
             $erreur['email'] = "<p>L'email est requis!</p>";
         }
@@ -52,7 +77,7 @@ function traiterFormulaire($entreeUtilisateur)
             $erreur['email'] = "<p>L'email n'est pas valide </p>";
         }
 
-        if($message == '')
+        if($message === '')
         {
             $erreur['message'] = "<p>Le message est requit!</p>";
         }
@@ -61,12 +86,18 @@ function traiterFormulaire($entreeUtilisateur)
             $erreur['message'] = "<p>Le message doit contenir entre 10 et 3000 caractères!</p>";
         }
 
-        if (!empty($erreur)) {
-            $valeurs['nom'] = $nom;
-            $valeurs['email'] = $email;
-            $valeurs['message'] = $message;
-            $valeurs['prenom'] = $prenom;
-        }
+        // if (!empty($erreur)) {
+        //     $valeurs['nom'] = $nom;
+        //     $valeurs['email'] = $email;
+        //     $valeurs['message'] = $message;
+        //     $valeurs['prenom'] = $prenom;
+        // }
+        $valeurs = [
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'email' => $email,
+            'message' => $message
+        ];
         
     return [$erreur, $valeurs];
    
