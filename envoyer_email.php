@@ -1,6 +1,5 @@
 
 
-
 <?php
 function envoyeremail ($valeurs){
 
@@ -9,15 +8,13 @@ function envoyeremail ($valeurs){
     $destinataire = "jesus.roldan82@hotmail.com";
     $sujet = "Projet Framework - Formulaire de contact";
     $message = $valeurs['message'];
-    // $message = wordwrap($message ?:'', 70, "\r\n");
-    // $message = str_replace("\n.", "\n..", $message);
+    
     $entetes = [
         "From" => $expediteur,
         "MIME-Version" => "1.0",
         "Content-Type" => "text/html; charset=\"UTF-8\"",
         "Content-Transfer-Encoding" => "quoted-printable"
     ];
-
 
     ob_start();
     ?>
@@ -46,7 +43,6 @@ function envoyeremail ($valeurs){
     {
         echo "L'envoi du courriel a échoué.";
     }
-
 
 }
      

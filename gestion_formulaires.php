@@ -11,46 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
    {
         echo $Message = "<p>Formulaire envoyé avec succès! </p>";
         envoyeremail($valeurs);
-        // $nom = htmlspecialchars(trim($entreeUtilisateur['nom'] ?? ''));
-        // $expediteur = $valeurs['email'];
-        // $destinataire = "jesus.roldan82@hotmail.com";
-        // $sujet = "Projet Framework - Formulaire de contact";
-        // $message = $valeurs['message'];
-        // $message = wordwrap($message ?:'', 70, "\r\n");
-        // $message = str_replace("\n.", "\n..", $message);
-
-        // $contenu = "
-        // <html>
-        // <head>
-        //     <title>$sujet</title>
-        // </head>
-        // <body>
-        //     <h2>Nouveau message du formulaire de contact</h2>
-        //     <p><strong>Nom :</strong> $nom</p>
-        //     <p><strong>Email :</strong> $expediteur</p>
-        //     <p><strong>Sujet :</strong> $sujet</p>
-        //     <p><strong>Message :</strong></p>
-        //     <p>$message</p>
-        // </body>
-        // </html>";
-
-
-        // $entetes = [
-        //     "From" => $expediteur,
-        //     "MIME-Version" => "1.0",
-        //     "Content-Type" => "text/html; charset=\"UTF-8\"",
-        //     "Content-Transfer-Encoding" => "quoted-printable"
-        // ];
-
-        // if (mail($destinataire, $sujet, $contenu, $entetes))
-        // {
-        //     echo "Le courriel a été envoyé avec succès.";
-        // }
-        // else
-        // {
-        //     echo "L'envoi du courriel a échoué.";
-        // }
-
+       
        $valeurs = [];
    }
    else{

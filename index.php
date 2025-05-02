@@ -6,6 +6,8 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
 
 <link rel="stylesheet" href="assets/styles.css">
 
+
+
 <h1>accueil</h1>
 
 <h2>Bienvenue sur votre site web !</h2>
