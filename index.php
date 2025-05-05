@@ -2,11 +2,19 @@
 $metaDescription="page accueil";
 $titre="accueil";
 require __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'config/config.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'core/gestionBdd.php';
 ?>
 
 <link rel="stylesheet" href="assets/styles.css">
 
+<!-- <?php
+$pdo=obtenirConnexionServeur();
+creerBaseDeDonnees($pdo);
+$pdoconnexion=obtenirConnexionBdd();
+creerTableUtilisateur($pdoconnexion);
 
+?> -->
 
 <h1>accueil</h1>
 

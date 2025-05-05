@@ -6,6 +6,9 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
 
 <h1>contact</h1>
 <form method="post" action="/gestion_formulaires.php">
+
+    <input type="hidden" name="type_formulaire" value="contact">
+
     <p>
     <label for="nom" class="obligatoire"> Nom :</label>
     <input type="text" name="nom" id="nom" placeholder="Champ obligatoire" required minlength="2" maxlength="255" />

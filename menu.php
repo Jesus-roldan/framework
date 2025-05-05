@@ -2,7 +2,9 @@
 
 $items = [
     'index.php' => 'Accueil',
-    'contact.php' => 'Contact'
+    'contact.php' => 'Contact',
+    'inscription.php' => 'Inscription',
+    'connexion.php' => 'Connexion'
 ];
 
 
