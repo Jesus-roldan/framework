@@ -7,7 +7,7 @@ function obtenirConnexionServeur(): PDO
 {
     $config = obtenirConfigBdd();
 
-    // Connexion uniquement au serveur, sans base
+    // Connexion uniquement au serveur, sans bdd
     $dsn = "mysql:host={$config['serveur']};charset=utf8mb4";
 
     $pdo = new PDO($dsn, $config['utilisateur'], $config['mdp']);
@@ -70,11 +70,11 @@ function insererUtilisateurs(PDO $pdo, array $valeurs): void
 
         $stmt = $pdo->prepare($requete);
 
-    $stmt->execute([
-        ':pseudo' => $valeurs['pseudo'],
-        ':email' => $valeurs['email'],
-        ':mdp' => password_hash($valeurs['mdp'], PASSWORD_DEFAULT) 
-    ]);
+        $stmt->bindValue(':pseudo', $valeurs['pseudo'], PDO::PARAM_STR);
+        $stmt->bindValue(':email', $valeurs['email'], PDO::PARAM_STR);
+        $stmt->bindValue(':mdp', password_hash($valeurs['mdp'], PASSWORD_DEFAULT), PDO::PARAM_STR);
+
+        $stmt->execute();
 
     } catch (PDOException $e) {
         gererExceptions($e);
@@ -88,7 +88,10 @@ function verifierConnexionUtilisateur(PDO $pdo, string $pseudo, string $mdp): bo
 
         $stmt = $pdo-> prepare($requete);
 
-        $stmt->execute([':pseudo' => $pseudo]); 
+        $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+
+        $stmt->execute();
+         
         $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($resultat && isset($resultat['uti_motdepasse'])) {

@@ -13,7 +13,7 @@ function gererExceptions(Exception $e): void
         // Définir le chemin complet vers le fichier de log des erreurs.
         $cheminLog = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR . 'erreurs.log';
 
-        // Construire un message d'erreur horodaté, contenant la date et l'heure suivies du message de l'exception.
+        // Construire un message d'erreur contenant la date et l'heure suivies du message de l'exception.
         $message = date('[Y-m-d H:i:s] ') . $e->getMessage() . PHP_EOL;
 
         // Enregistrer le message dans le fichier de log.
