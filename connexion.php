@@ -1,7 +1,13 @@
 <?php 
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'gestionAuthentification.php';
 $metaDescription="page inscription";
 $titre="inscription";
 require __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
+
+if (est_connecte()) {
+    header("Location: profil.php");
+    die();
+}
 ?>
 
 <link rel="stylesheet" href="assets/styles.css">

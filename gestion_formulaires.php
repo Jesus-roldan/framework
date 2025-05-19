@@ -2,7 +2,7 @@
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'envoyer_email.php';
 require_once __DIR__. DIRECTORY_SEPARATOR .'core' . DIRECTORY_SEPARATOR . 'gestionBdd.php';
-
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'gestionAuthentification.php';
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $typeFormulaire = $_POST['type_formulaire'] ?? '';
 
@@ -39,7 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $pdo = obtenirConnexionBdd();
         if (verifierConnexionUtilisateur($pdo, $pseudo, $mdp)) {
-                echo "Connexion réussie.";
+                connecter_utilisateur($pdo, $pseudo);
+                header('Location: profil.php');
+                die();
     
         } else {
                 echo "Pseudo ou mot de passe incorrect.";

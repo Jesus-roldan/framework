@@ -10,5 +10,5 @@ h1
 nav ul li.active a {
     color:blueviolet;
     font-weight: bold;
-    text-decoration: underline;
+    text-decoration: none;
 }
