@@ -12,20 +12,15 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'menu.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?=$metaDescription?>">
     <title><?=$titre?></title>
-    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="stylesheet" href="/framework/assets/styles.css">
 </head>
 <body>
     <header>
         <nav>    
-            <ul>   
-                <?php        
+             <?php        
             echo genererMenu($items);
-                ?>   
-
-            </ul>
+             ?>               
         </nav>
-
-        <!-- <pre><?php print_r($_SERVER); ?></pre> -->
 
     </header>
    <main>

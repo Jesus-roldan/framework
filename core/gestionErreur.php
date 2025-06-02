@@ -1,7 +1,6 @@
 <?php
 require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php';
 
-
 function gererExceptions(Exception $e): void
 {
     if (defined('DEV_MODE') && DEV_MODE === true)

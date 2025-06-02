@@ -1,59 +1,6 @@
 <?php
-
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'envoyer_email.php';
-require_once __DIR__. DIRECTORY_SEPARATOR .'core' . DIRECTORY_SEPARATOR . 'gestionBdd.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'gestionAuthentification.php';
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $typeFormulaire = $_POST['type_formulaire'] ?? '';
-
-    if ($typeFormulaire === 'contact') {
-        [$erreurs, $valeurs] = traiterFormulaireContact($_POST);
-
-        if (empty($erreurs)) {
-            echo "<p>Formulaire de contact envoyé avec succès !</p>";
-            envoyeremail($valeurs);
-        } else {
-            echo "<p>Le formulaire de contact n'a pas été envoyé !</p>";
-        }
-
-    } elseif ($typeFormulaire === 'inscription') {
-        [$erreurs, $valeurs] = traiterFormulaireInscription($_POST);
-
-        if (empty($erreurs)) {
-            try {
-                $pdo = obtenirConnexionBdd();
-
-                insererUtilisateurs($pdo, $valeurs); 
-
-                echo "<p>Inscription réussie !</p>";
-            } catch (PDOException $e) {
-                echo "<p>Erreur lors de l'inscription : " . $e->getMessage() . "</p>";
-            }
-        } else {
-            echo "<p>Le formulaire d'inscription contient des erreurs.</p>";
-        }
-    }elseif ($typeFormulaire === 'connexion') {
-
-        $pseudo = trim($_POST['pseudo'] ?? '');
-        $mdp = $_POST['mdp'] ?? '';
-
-        $pdo = obtenirConnexionBdd();
-        if (verifierConnexionUtilisateur($pdo, $pseudo, $mdp)) {
-                connecter_utilisateur($pdo, $pseudo);
-                header('Location: profil.php');
-                die();
-    
-        } else {
-                echo "Pseudo ou mot de passe incorrect.";
-        }
-    }
-}
-
-
 function traiterFormulaireContact($entreeUtilisateur)
 {
-
-
     $erreur=[];
     $valeurs=[];
 

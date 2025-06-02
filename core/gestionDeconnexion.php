@@ -6,9 +6,9 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-deconnecter_utilisateur();
+deconnecterUtilisateur();
 
-header('Location: connexion.php');
+header('Location: '. BASE_URL .'connexion.php');
 die();
 
 ?>

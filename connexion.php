@@ -1,21 +1,18 @@
 <?php 
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'gestionAuthentification.php';
+
 $metaDescription="page inscription";
 $titre="inscription";
-require __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'gestionAuthentification.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'header.php';
 
-if (est_connecte()) {
-    header("Location: profil.php");
+if (estConnecte()) {
+    header('Location:'. BASE_URL .'profil.php');
     die();
 }
 ?>
 
-<link rel="stylesheet" href="assets/styles.css">
-
-
-
 <h1>Connexion</h1>
-    <form action="gestion_formulaires.php" method="POST">
+    <form action="<?= BASE_URL ?>controller/connexionController.php" method="POST">
     <input type="hidden" name="type_formulaire" value="connexion">
         <p>
         <label for="pseudo">Pseudo :</label>
@@ -29,9 +26,9 @@ if (est_connecte()) {
         <button type="submit">Se connecter</button>
     </form>
 
-    <p>Pas encore inscrit ? <a href="inscription.php">Créer un compte</a></p>
+    <p>Pas encore inscrit ? <a href="<?= BASE_URL ?>inscription.php">Créer un compte</a></p>
 
     
 <?php 
-require __DIR__ . DIRECTORY_SEPARATOR . 'footer.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'footer.php';
 ?>

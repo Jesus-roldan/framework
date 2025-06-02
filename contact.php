@@ -1,14 +1,12 @@
 <?php 
 $metaDescription="page contact";
 $titre="contact";
-require __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
+
+require __DIR__ . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'header.php';
 ?>
 
 <h1>contact</h1>
-<form method="post" action="/gestion_formulaires.php">
-
-    <input type="hidden" name="type_formulaire" value="contact">
-
+<form method="post" action="<?= BASE_URL ?>controller/contactController.php">
     <p>
     <label for="nom" class="obligatoire"> Nom :</label>
     <input type="text" name="nom" id="nom" placeholder="Champ obligatoire" required minlength="2" maxlength="255" />
@@ -35,5 +33,5 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
 </form>
 
 <?php 
-require __DIR__ . DIRECTORY_SEPARATOR . 'footer.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'footer.php';
 ?>
