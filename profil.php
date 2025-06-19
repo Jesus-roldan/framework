@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();  
 }
 ?>
-
+<div id="profil">
  <h1>Profil</h1>
    
 
@@ -21,7 +21,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <form method="post" action="<?= BASE_URL ?>core/gestionDeconnexion.php">
         <button type="submit">Déconnexion</button>
     </form>
-    
+</div>    
 <?php 
 require __DIR__ . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'footer.php';
 ?>

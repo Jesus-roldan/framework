@@ -1,5 +1,4 @@
 <?php 
-
 $metaDescription="page inscription";
 $titre="inscription";
 require __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'gestionAuthentification.php';
@@ -10,7 +9,7 @@ if (estConnecte()) {
     die();
 }
 ?>
-
+<div id="connexion">
 <h1>Connexion</h1>
     <form action="<?= BASE_URL ?>controller/connexionController.php" method="POST">
     <input type="hidden" name="type_formulaire" value="connexion">
@@ -27,8 +26,7 @@ if (estConnecte()) {
     </form>
 
     <p>Pas encore inscrit ? <a href="<?= BASE_URL ?>inscription.php">Créer un compte</a></p>
-
-    
+</div>    
 <?php 
 require __DIR__ . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'footer.php';
 ?>

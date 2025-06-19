@@ -17,4 +17,25 @@ header nav ul{
 header nav ul li a{
     font-size: 1.5em;
 }
+main div#connexion,
+div#contact,
+div#inscription,
+div#profil{ 
+    background-color: aquamarine;
 
+    width: 300px;
+
+    margin: auto;
+    padding: 20px;
+      
+    border: 1.5px solid black;
+    border-radius: 10px;
+}
+main div#accueil{
+    text-align: center;
+    padding-left: none;
+}
+footer{
+    margin-top: 30px;
+    padding-left: 40em;
+}

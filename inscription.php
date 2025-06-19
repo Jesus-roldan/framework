@@ -10,6 +10,7 @@ if (estConnecte()) {
     die();
 }
 ?>
+<div id="inscription">
 <h1>inscription</h1>
 
     <form action="<?= BASE_URL ?>controller/inscriptionController.php" method="POST">
@@ -33,6 +34,7 @@ if (estConnecte()) {
         </p>
         <button type="submit">S'inscrire</button>
     </form>
+</div>
 
 <?php 
 require __DIR__ . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'footer.php';

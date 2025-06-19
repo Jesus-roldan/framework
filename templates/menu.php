@@ -10,7 +10,6 @@ $items = [
     'profil.php' => 'Profil'
 ];
 
-
 function genererMenu($items) {
     ob_start();
 

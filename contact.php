@@ -4,7 +4,7 @@ $titre="contact";
 
 require __DIR__ . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'header.php';
 ?>
-
+<div id="contact">
 <h1>contact</h1>
 <form method="post" action="<?= BASE_URL ?>controller/contactController.php">
     <p>
@@ -31,7 +31,7 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'hea
         <input type="submit" value="Envoyer">
     </p>
 </form>
-
+</div>
 <?php 
 require __DIR__ . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'footer.php';
 ?>
