@@ -1,7 +1,6 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'gestionSession.php';
+initialiserSession();
 require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'gestionBdd.php';
 require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . '/gestionAuthentification.php';
 require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . '/gestionFormulaire.php';
@@ -16,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo = obtenirConnexionBdd();
 
         if (verifierConnexionUtilisateur($pdo, $pseudo, $mdp)) {
+            session_regenerate_id(true);
             connecterUtilisateur($pdo, $pseudo);
             header('Location: ' . BASE_URL . 'profil.php');
             exit;
