@@ -6,7 +6,6 @@ h1
 nav ul li.active a {
     color:rgba(121, 114, 114, 0.958);
     font-weight: bold;
-    text-decoration: none;
 }
 header nav ul{
     display: flex;
@@ -16,6 +15,7 @@ header nav ul{
 }
 header nav ul li a{
     font-size: 1.5em;
+    text-decoration: none;
 }
 main div#connexion,
 div#contact,
